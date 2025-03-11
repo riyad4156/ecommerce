@@ -25,8 +25,8 @@ document.addEventListener('DOMContentLoaded', function() {
             price: 129.99,
             discountPrice: 119.99,
             images: {
-                primary: "images/slider-01_1265x.webp",
-                secondary: "images/slider-02_1265x.webp"
+                primary:   "slider-01_1265x.webp",
+                secondary: "slider-02_1265x.webp"
             },
             inStock: true,
             isNew: false,
@@ -42,8 +42,8 @@ document.addEventListener('DOMContentLoaded', function() {
             price: 599.99,
             discountPrice: null,
             images: {
-                primary: "images/02_370x240.avif",
-                secondary: "images/03_370x240.avif"
+                primary: "02_370x240.avif",
+                secondary: "03_370x240.avif"
             },
             inStock: true,
             isNew: true,
@@ -59,8 +59,8 @@ document.addEventListener('DOMContentLoaded', function() {
             price: 199.99,
             discountPrice: 179.99,
             images: {
-                primary: "images/04_370x240.avif",
-                secondary: "images/05_370x240.avif"
+                primary: "04_370x240.avif",
+                secondary: "05_370x240.avif"
             },
             inStock: false,
             isNew: false,
@@ -76,8 +76,8 @@ document.addEventListener('DOMContentLoaded', function() {
             price: 349.99,
             discountPrice: null,
             images: {
-                primary: "images/05-02_238x286.avif",
-                secondary: "images/11-02_238x286.avif"
+                primary: "05-02_238x286.avif",
+                secondary: "11-02_238x286.avif"
             },
             inStock: true,
             isNew: false,
@@ -93,8 +93,8 @@ document.addEventListener('DOMContentLoaded', function() {
             price: 799.99,
             discountPrice: 749.99,
             images: {
-                primary: "images/12-02_145x.webp",
-                secondary: "images/categories-02_200x280.avif"
+                primary: "12-02_145x.webp",
+                secondary: "categories-02_200x280.avif"
             },
             inStock: true,
             isNew: true,
@@ -110,8 +110,8 @@ document.addEventListener('DOMContentLoaded', function() {
             price: 299.99,
             discountPrice: null,
             images: {
-                primary: "images/categories-04_200x280.avif",
-                secondary: "images/categories-05_200x280.avif"
+                primary: "categories-04_200x280.avif",
+                secondary: "categories-05_200x280.avif"
             },
             inStock: true,
             isNew: true,
@@ -127,8 +127,8 @@ document.addEventListener('DOMContentLoaded', function() {
             price: 399.99,
             discountPrice: 349.99,
             images: {
-                primary: "images/slider-01_1265x.webp",
-                secondary: "images/slider-02_1265x.webp"
+                primary: "slider-01_1265x.webp",
+                secondary: "slider-02_1265x.webp"
             },
             inStock: true,
             isNew: false,
@@ -144,8 +144,8 @@ document.addEventListener('DOMContentLoaded', function() {
             price: 79.99,
             discountPrice: null,
             images: {
-                primary: "images/02_370x240.avif",
-                secondary: "images/03_370x240.avif"
+                primary: "02_370x240.avif",
+                secondary: "03_370x240.avif"
             },
             inStock: true,
             isNew: false,
@@ -161,8 +161,8 @@ document.addEventListener('DOMContentLoaded', function() {
             price: 49.99,
             discountPrice: 39.99,
             images: {
-                primary: "images/04_370x240.avif",
-                secondary: "images/05_370x240.avif"
+                primary: "04_370x240.avif",
+                secondary: "05_370x240.avif"
             },
             inStock: true,
             isNew: true,
@@ -178,8 +178,8 @@ document.addEventListener('DOMContentLoaded', function() {
             price: 29.99,
             discountPrice: null,
             images: {
-                primary: "images/05-02_238x286.avif",
-                secondary: "images/11-02_238x286.avif"
+                primary: "05-02_238x286.avif",
+                secondary: "11-02_238x286.avif"
             },
             inStock: true,
             isNew: false,
@@ -195,8 +195,8 @@ document.addEventListener('DOMContentLoaded', function() {
             price: 89.99,
             discountPrice: 79.99,
             images: {
-                primary: "images/categories-02_200x280.avif",
-                secondary: "images/categories-05_200x280.avif"
+                primary: "categories-02_200x280.avif",
+                secondary: "categories-05_200x280.avif"
             },
             inStock: true,
             isNew: true,
