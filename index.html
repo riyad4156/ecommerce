@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shoppe super market</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+</head>
+<body>
+    <!-- Announcement Bar -->
+    <div class="announcement-bar">
+        <div class="container">
+            <div class="top-nav">
+                <a href="#">Home</a>
+                <a href="#">Contact Us</a>
+                <a href="#">About Us</a>
+                <a href="#">Delivery</a>
+                <div class="dropdown">
+                    <button class="dropbtn">More <i class="fas fa-chevron-down"></i></button>
+                    <div class="dropdown-content">
+                        <a href="#">FAQ</a>
+                        <a href="#">Blogs</a>
+                        <a href="#">Services</a>
+                        <a href="#">Support</a>
+                    </div>
+                </div>
+                <div class="language-dropdown">
+                    <button class="language-btn">
+                        <span>English</span>  <i class="fa fa-chevron-down"></i>
+                    </button>
+                    <div class="language-content">
+                        <a href="#" data-lang="en">English</a>
+                        <a href="#" data-lang="fr">Français</a>
+                        <a href="#" data-lang="es">Español</a>
+                        <a href="#" data-lang="de">Deutsch</a>
+                    </div>
+                </div>
+                <div class="currency-dropdown">
+                    <button class="currency-btn">  USD <i class="fa fa-chevron-down"></i></button>
+                    <div class="currency-content">
+                        <a href="#" data-currency="USD"> <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Flag_of_the_United_States_%28DoS_ECA_Color_Standard%29.svg/1920px-Flag_of_the_United_States_%28DoS_ECA_Color_Standard%29.svg.png" alt="" srcset=""> USD</a>
+                        <a href="#" data-currency="EUR"> <img src="https://cdn.shopify.com/s/files/1/1454/2846/t/5/assets/currency_2.png?5796274980970116025" alt=""> EUR</a>
+                        <a href="#" data-currency="GBP"> <img src="https://cdn.shopify.com/s/files/1/1454/2846/t/5/assets/currency_3.png?5796274980970116025" alt=""> GBP</a>
+                        <a href="#" data-currency="JPY"> <img src="https://cdn.shopify.com/s/files/1/1454/2846/t/5/assets/currency_4.png?5796274980970116025" alt=""> JPY</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="main-header" id="mainHeader">
+        <div class="container">
+            <div class="logo">
+                <img src="https://theme-shoppee.myshopify.com/cdn/shop/files/logo-01.png?v=1614287210" alt="Shoppe Logo">
+            </div>
+            <div class="search-bar">
+                <input type="text" id="searchInput" placeholder="Search our product" autocomplete="off"> 
+                   <div class="select-wrapper">
+                      <select id="categorySelect" class="category-select" > 
+                         <option value="all">All Collection <i class="fas fa-chevron-down" ></i> </option> 
+                         <option value="cameras">Cameras</option>
+                         <option value="lenses">Lenses</option>
+                         <option value="accessories">Accessories</option>
+                      </select>
+                    </div>
+                  <button class="search-btn" id="searchBtn"><i class="fas fa-search"></i> Search</button>
+               </input>
+   
+                
+                <!-- Search Results Popup -->
+                <div class="search-results" id="searchResults">
+                    <!-- Search results will be added dynamically -->
+                </div>
+            </div>
+            <div class="header-actions">
+                 <a href="#" class="sign-in"><i class="fas fa-user"></i> Sign in</a>
+                 <a href="#" class="cart" id="cartBtn">
+                    <i class="fas fa-shopping-cart"></i> Cart <span class="cart-count" id="cartCount">0</span>
+                 </a>
+                    <!-- for  responsive -->
+                    <a href="#" class="sign-in-res"><i class="fas fa-user"></i></a>
+                    <a href="#" class=" cart-res" id="cartBtn">
+                       <i class="fas fa-shopping-cart" ></i>
+                    </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        
+            <!-- Sidebar -->
+                <aside class="sidebar">
+                    <div class="categories-header" id="categoriesToggle">
+                        <h3>Shop Categories</h3>
+                        <i class="fas fa-bars"></i>
+                    </div>
+                    <ul class="category-menu" id="categoryMenu">
+                        <li class="has-submenu">
+                            <a href="#"><i class="fas fa-desktop"></i> Home <i class="fas fa-chevron-down"></i></a>
+                            <ul class="submenu">
+                                <li><a href="#">Home Decor</a></li>
+                                <li><a href="#">Smart Home</a></li>
+                                <li><a href="#">Kitchen</a></li>
+                            </ul>
+                        </li>
+                        <li class="has-submenu">
+                            <a href="#"><i class="fas fa-book"></i> Catalog <span class="tag">LATEST</span> <i class="fas fa-chevron-down"></i></a>
+                            <ul class="submenu">
+                                <li><a href="#">New Arrivals</a></li>
+                                <li><a href="#">Best Sellers</a></li>
+                                <li><a href="#">Clearance</a></li>
+                            </ul>
+                        </li>
+                        <li class="has-submenu">
+                            <a href="#"><i class="fas fa-shopping-bag"></i> Shop <span class="tag hot">HOT</span> <i class="fas fa-chevron-down"></i></a>
+                            <ul class="submenu">
+                                <li><a href="#">Cameras</a></li>
+                                <li><a href="#">Lenses</a></li>
+                                <li><a href="#">Accessories</a></li>
+                                <li><a href="#">Tripods</a></li>
+                            </ul>
+                        </li>
+                        <li class="has-submenu">
+                            <a href="#"><i class="fas fa-box"></i> Products <i class="fas fa-chevron-down"></i></a>
+                            <ul class="submenu">
+                                <li><a href="#">DSLR Cameras</a></li>
+                                <li><a href="#">Mirrorless Cameras</a></li>
+                                <li><a href="#">Action Cameras</a></li>
+                                <li><a href="#">Instant Cameras</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#"><i class="fas fa-info-circle"></i> About Us <i class="fas fa-chevron-down"></i></a></li>
+                        <li><a href="#"><i class="fas fa-phone"></i> Contact Us <i class="fas fa-chevron-down"></i></a></li>
+                        <li><a href="#"><i class="fas fa-question-circle"></i> FAQ's <i class="fas fa-chevron-down"></i></a></li>
+                        <li><a href="#"><i class="fas fa-blog"></i> Blogs <i class="fas fa-chevron-down"></i></a></li>
+                        <li><a href="#"><i class="fas fa-ellipsis-h"></i> More <i class="fas fa-plus"></i></a></li>
+                    </ul>
+                </aside>
+        
+
+            <!-- Content Area -->
+            <div class="content">
+                <!-- Hero Slider -->
+                <div class="hero-slider" id="heroSlider">
+                    <div class="slider-container">
+                        <div class="slide active">
+                            <img src="images/slider-01_1265x.webp" alt="Camera Collection">
+                            <div class="slide-content" data-aos="fade-right">
+                                <h2>New HD Cameras</h2>
+                                <p>Buy New Cameras at 35% off</p>
+                                <button class="shop-now-btn">Shop Now</button>
+                            </div>
+                        </div>
+                        <div class="slide">
+                            <img src="images/slider-02_1265x.webp" alt="Lens Collection">
+                            <div class="slide-content right" data-aos="fade-left">
+                                <h2>Premium Lens Collection</h2>
+                                <p>Explore our high-quality lenses for every need</p>
+                                <button class="shop-now-btn">Shop Now</button>
+                            </div>
+                        </div>
+                       
+                    </div>
+                    <button class="slider-btn prev" id="prevSlide"><i class="fas fa-chevron-left"></i></button>
+                    <button class="slider-btn next" id="nextSlide"><i class="fas fa-chevron-right"></i></button>
+                    <div class="slider-dots">
+                        <span class="dot active" data-slide="0"></span>
+                        <span class="dot" data-slide="1"></span>
+                    </div>
+                </div>
+
+                <!-- Features -->
+                <div class="features">
+                    <div class="feature">
+                        <div class="feature-icon"><i class="fas fa-headset"></i></div>
+                        <div class="feature-content">
+                            <h3>24/7 Support</h3>
+                            <p>In Safe Hands</p>
+                        </div>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-icon"><i class="fas fa-box"></i></div>
+                        <div class="feature-content">
+                            <h3>Big Saving</h3>
+                            <p>At Lowest Price</p>
+                        </div>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-icon"><i class="fas fa-credit-card"></i></div>
+                        <div class="feature-content">
+                            <h3>Easy Payment</h3>
+                            <p>Secure Payment</p>
+                        </div>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-icon"><i class="fas fa-truck"></i></div>
+                        <div class="feature-content">
+                            <h3>Big Discounts</h3>
+                            <p>On Big Brands</p>
+                        </div>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-icon"><i class="fas fa-globe"></i></div>
+                        <div class="feature-content">
+                            <h3>Shop Globally</h3>
+                            <p>No Boundaries</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Top Categories - Made Full Width -->
+                <div class="section-container full-width">
+                    <div class="section-header">
+                        <h2>Top Categories</h2>
+                        <div class="category-tags">
+                            <span class="category-tag active">Streetluge</span>
+                            <span class="category-tag">Snowkiting</span>
+                            <span class="category-tag">Skysurfing</span>
+                        </div>
+                        <div class="navigation-arrows">
+                            <button class="prev-arrow" data-slider="top-categories"><i class="fas fa-chevron-left"></i></button>
+                            <button class="next-arrow" data-slider="top-categories"><i class="fas fa-chevron-right"></i></button>
+                        </div>
+                    </div>
+                    <div class="product-slider" id="topCategoriesSlider">
+                        <!-- Products will be added dynamically -->
+                    </div>
+                </div>
+
+                <!-- Promotional Banners -->
+                <div class="promo-banners">
+                    <div class="promo-banner">
+                        <img src="images/categories-02_200x280.avif" alt="Snap Touch">
+                        <div class="promo-content">
+                            <h3>Snap Touch</h3>
+                            <p>Smart Camera</p>
+                            <span class="promo-discount">Save 35% Off</span>
+                        </div>
+                    </div>
+                    <div class="promo-banner">
+                        <img src="images/categories-05_200x280.avif" alt="Security Cameras">
+                        <div class="promo-content">
+                            <h3>Security Cameras</h3>
+                            <p>Secure your home from theft</p>
+                            <button class="shop-now-btn small">Shop Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Special Collection -->
+                <div class="section-container">
+                    <div class="section-header">
+                        <h2>Special Collection</h2>
+                        <div class="navigation-arrows">
+                            <button class="prev-arrow" data-slider="special-collection"><i class="fas fa-chevron-left"></i></button>
+                            <button class="next-arrow" data-slider="special-collection"><i class="fas fa-chevron-right"></i></button>
+                        </div>
+                    </div>
+                    <div class="product-slider" id="specialCollectionSlider">
+                        <!-- Products will be added dynamically -->
+                    </div>
+                </div>
+
+                <!-- New Collection -->
+                <div class="section-container">
+                    <div class="section-header">
+                        <h2>New Collection</h2>
+                        <div class="navigation-arrows">
+                            <button class="prev-arrow" data-slider="new-collection"><i class="fas fa-chevron-left"></i></button>
+                            <button class="next-arrow" data-slider="new-collection"><i class="fas fa-chevron-right"></i></button>
+                        </div>
+                    </div>
+                    <div class="product-slider" id="newCollectionSlider">
+                        <!-- Products will be added dynamically -->
+                    </div>
+                </div>
+
+                <!-- Featured Products -->
+                <div class="section-container">
+                    <div class="section-header">
+                        <h2>Featured Products</h2>
+                        <div class="navigation-arrows">
+                            <button class="prev-arrow" data-slider="featured-products"><i class="fas fa-chevron-left"></i></button>
+                            <button class="next-arrow" data-slider="featured-products"><i class="fas fa-chevron-right"></i></button>
+                        </div>
+                    </div>
+                    <div class="product-slider" id="featuredProductsSlider">
+                        <!-- Products will be added dynamically -->
+                    </div>
+                </div>
+
+                <!-- Promotional Banners 2 -->
+                <div class="custom-promo-banners full-width">
+                    <div class="custom-promo-banner large">
+                        <img src="https://theme-shoppee.myshopify.com/cdn/shop/files/banner-04_a18873ca-b25b-4808-9be1-c6a7252c65d2_1185x250.jpg?v=1614305048" alt="New Cameras">
+                        <div class="custom-promo-content">
+                            <h3>New Cameras</h3>
+                            <p>Exclusive, in our store</p>
+                            <span class="custom-promo-discount">Mega Deals On</span>
+                        </div>
+                    </div>
+                </div>
+                
+
+                <!-- Browse Categories -->
+                <div class="section-container">
+                    <div class="section-header">
+                        <h2>Browse Categories</h2>
+                        <div class="navigation-arrows">
+                            <button class="prev-arrow" data-slider="browse-categories"><i class="fas fa-chevron-left"></i></button>
+                            <button class="next-arrow" data-slider="browse-categories"><i class="fas fa-chevron-right"></i></button>
+                        </div>
+                    </div>
+                    <div class="category-grid">
+                        <div class="category-card">
+                            <h3>Electronics</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+                            <span class="item-count">15 Items</span>
+                            <img src="images/05_370x240.avif" alt="Electronics">
+                        </div>
+                        <div class="category-card">
+                            <h3>Cameras</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+                            <span class="item-count">10 Items</span>
+                            <img src="images/03_370x240.avif" alt="Cameras">
+                        </div>
+                        <div class="category-card">
+                            <h3>Game</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+                            <span class="item-count">12 Items</span>
+                            <img src="images/categories-02_200x280.avif" alt="Game">
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Bestseller Collection -->
+                <div class="section-container">
+                    <div class="section-header">
+                        <h2>Bestseller Collection</h2>
+                        <div class="navigation-arrows">
+                            <button class="prev-arrow" data-slider="bestseller-collection"><i class="fas fa-chevron-left"></i></button>
+                            <button class="next-arrow" data-slider="bestseller-collection"><i class="fas fa-chevron-right"></i></button>
+                        </div>
+                    </div>
+                    <div class="product-slider" id="bestsellerCollectionSlider">
+                        <!-- Products will be added dynamically -->
+                    </div>
+                </div>
+
+                <!-- Latest Blog -->
+                <div class="section-container">
+                    <div class="section-header">
+                        <h2>Latest Blog</h2>
+                        <div class="navigation-arrows">
+                            <button class="prev-arrow" data-slider="latest-blog"><i class="fas fa-chevron-left"></i></button>
+                            <button class="next-arrow" data-slider="latest-blog"><i class="fas fa-chevron-right"></i></button>
+                        </div>
+                    </div>
+                    <div class="blog-grid">
+                        <div class="blog-card">
+                            <div class="blog-image">
+                                <img src="https://theme-shoppee.myshopify.com/cdn/shop/articles/05_370x240.jpg?v=1593860676" alt="Blog Post">
+                                <div class="blog-date">
+                                    <span class="day">28</span>
+                                    <span class="month">Jun</span>
+                                </div>
+                            </div>
+                            <div class="blog-content">
+                                <h3>How We Are Certified Photographers</h3>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+                                <a href="#" class="read-more">Read more <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                        <div class="blog-card">
+                            <div class="blog-image">
+                                <img src="https://theme-shoppee.myshopify.com/cdn/shop/articles/04_370x240.jpg?v=1593860671" alt="Blog Post">
+                                <div class="blog-date">
+                                    <span class="day">28</span>
+                                    <span class="month">Jun</span>
+                                </div>
+                            </div>
+                            <div class="blog-content">
+                                <h3>Open Of Session Earth Photography</h3>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+                                <a href="#" class="read-more">Read more <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                        <div class="blog-card">
+                            <div class="blog-image">
+                                <img src="https://theme-shoppee.myshopify.com/cdn/shop/articles/03_370x240.jpg?v=1593860666" alt="Blog Post">
+                                <div class="blog-date">
+                                    <span class="day">28</span>
+                                    <span class="month">Jun</span>
+                                </div>
+                            </div>
+                            <div class="blog-content">
+                                <h3>From How We Are Certified Photographers</h3>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+                                <a href="#" class="read-more">Read more <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                        <div class="blog-card">
+                            <div class="blog-image">
+                                <img src="https://theme-shoppee.myshopify.com/cdn/shop/articles/02_370x240.jpg?v=1593860654" alt="Blog Post">
+                                <div class="blog-date">
+                                    <span class="day">28</span>
+                                    <span class="month">Jun</span>
+                                </div>
+                            </div>
+                            <div class="blog-content">
+                                <h3>Share The Love</h3>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+                                <a href="#" class="read-more">Read more <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Manufacturers -->
+                <div class="section-container">
+                    <div class="section-header">
+                        <h2>Manufacturers</h2>
+                        <div class="navigation-arrows">
+                            <button class="prev-arrow" data-slider="manufacturers"><i class="fas fa-chevron-left"></i></button>
+                            <button class="next-arrow" data-slider="manufacturers"><i class="fas fa-chevron-right"></i></button>
+                        </div>
+                    </div>
+                    <div class="brands-slider">
+                        <div class="brand-logo">
+                            <img src="https://theme-shoppee.myshopify.com/cdn/shop/files/01_5b319a29-5f99-4349-b8e1-0094336d97e7_130x130.png?v=1614297599" alt="Brand">
+                        </div>
+                        <div class="brand-logo">
+                            <img src="https://theme-shoppee.myshopify.com/cdn/shop/files/02_e5407a8d-a824-4604-b134-23b612d2947b_130x130.png?v=1614297599" alt="Brand">
+                        </div>
+                        <div class="brand-logo">
+                            <img src="https://theme-shoppee.myshopify.com/cdn/shop/files/03_23e75ec0-0bd4-41c4-8b13-fbd6fd545c6e_130x130.png?v=1614297599" alt="Brand">
+                        </div>
+                        <div class="brand-logo">
+                            <img src="https://theme-shoppee.myshopify.com/cdn/shop/files/04_11274ed7-9a2e-4d62-83ba-32a7a86e5134_130x130.png?v=1614297599" alt="Brand">
+                        </div>
+                        <div class="brand-logo">
+                            <img src="https://theme-shoppee.myshopify.com/cdn/shop/files/06_83625e38-9d5f-4915-adb4-cee61975ba2e_130x130.png?v=1614297599" alt="Brand">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Newsletter Signup -->
+    <div class="newsletter-signup">
+        <div class="container">
+            <div class="signup-icon">
+                <i class="fas fa-envelope"></i>
+            </div>
+            <div class="signup-content">
+                <h3>Signup Newsletter</h3>
+                <p>Get email updates about our latest shop and special offers</p>
+            </div>
+            <div class="signup-form">
+                <input type="email" placeholder="Enter your email address">
+                <button class="subscribe-btn">Subscribe</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-top">
+            <div class="container">
+                <div class="footer-columns">
+                    <div class="footer-column">
+                        <h3>About Store</h3>
+                        <p>Shoppe provides electronics, cameras, lenses, tripod, and many more things at affordable prices. Shop with us today!</p>
+                        <div class="social-icons">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-youtube"></i></a>
+                        </div>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Information</h3>
+                        <ul>
+                            <li><a href="#">Search</a></li>
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">Contact Us</a></li>
+                            <li><a href="#">Delivery</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Blog</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Best In Offer</h3>
+                        <ul>
+                            <li><a href="#">Wishlist</a></li>
+                            <li><a href="#">Terms & Conditions</a></li>
+                            <li><a href="#">Blog</a></li>
+                            <li><a href="#">Special Offers</a></li>
+                            <li><a href="#">Gift Cards</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Your Account</h3>
+                        <ul>
+                            <li><a href="#">My Account</a></li>
+                            <li><a href="#">Orders</a></li>
+                            <li><a href="#">Delivery</a></li>
+                            <li><a href="#">Wishlist</a></li>
+                            <li><a href="#">Track Order</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Store Information</h3>
+                        <ul class="store-info">
+                            <li><i class="fas fa-map-marker-alt"></i> 123 Company, 456 Puffin Street, California, USA</li>
+                            <li><i class="fas fa-envelope"></i> <a href="mailto:info@shoppe.com">info@shoppe.com</a></li>
+                            <li><i class="fas fa-phone"></i> (+01) 234-567-890</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-middle">
+            <div class="container">
+                <div class="footer-categories">
+                    <h3>Popular Categories:</h3>
+                    <ul>
+                        <li><a href="#">Cameras</a></li>
+                        <li><a href="#">Lenses</a></li>
+                        <li><a href="#">Accessories</a></li>
+                        <li><a href="#">Electronics</a></li>
+                        <li><a href="#">Smart Home</a></li>
+                        <li><a href="#">Tripods</a></li>
+                        <li><a href="#">Lighting</a></li>
+                        <li><a href="#">Security</a></li>
+                        <li><a href="#">View all products</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="copyright">
+                    <p>Copyright © 2025 Theme. Shoppe | Powered by Shopify</p>
+                </div>
+                <div class="payment-methods">
+                    <img src="https://via.placeholder.com/300x30" alt="Payment Methods">
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h3>Shopping Cart</h3>
+            <button class="close-cart" id="closeCart"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <!-- Cart items will be added dynamically -->
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span id="cartTotal">$0.00</span>
+            </div>
+            <button class="checkout-btn">Checkout</button>
+        </div>
+    </div>
+    <div class="cart-overlay" id="cartOverlay"></div>
+
+    <!-- Quick View Modal -->
+    <div class="quick-view-modal" id="quickViewModal">
+        <div class="quick-view-content">
+            <button class="close-modal" id="closeQuickView"><i class="fas fa-times"></i></button>
+            <div class="product-details">
+                <div class="product-images">
+                    <div class="main-image">
+                        <img id="quickViewMainImage" src="https://via.placeholder.com/400x400" alt="Product">
+                    </div>
+                    <div class="thumbnail-images">
+                        <img src="https://via.placeholder.com/80x80" alt="Thumbnail" class="active" onclick="changeQuickViewImage(this.src)">
+                        <img src="https://via.placeholder.com/80x80" alt="Thumbnail" onclick="changeQuickViewImage(this.src)">
+                        <img src="https://via.placeholder.com/80x80" alt="Thumbnail" onclick="changeQuickViewImage(this.src)">
+                    </div>
+                </div>
+                <div class="product-info">
+                    <h2 id="quickViewTitle">Product Title</h2>
+                    <p class="product-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. The brand offers feminine designs delivering stylish separates and statement dresses which have since evolved into a full ready-to-wear collection in which every item is a vital part of a woman's wardrobe.</p>
+                    <div class="product-price">
+                        <span id="quickViewPrice">$180.00</span>
+                    </div>
+                    <div class="product-availability">
+                        <span>Availability: </span>
+                        <span id="quickViewAvailability">In Stock</span>
+                    </div>
+                    <div class="product-options">
+                        <div class="size-option">
+                            <label>Size:</label>
+                            <select id="quickViewSize">
+                                <option value="S">S</option>
+                                <option value="M">M</option>
+                                <option value="L" selected>L</option>
+                                <option value="XL">XL</option>
+                            </select>
+                        </div>
+                        <div class="color-option">
+                            <label>Color:</label>
+                            <select id="quickViewColor">
+                                <option value="Black">Black</option>
+                                <option value="White">White</option>
+                                <option value="Yellow" selected>Yellow</option>
+                                <option value="Red">Red</option>
+                            </select>
+                        </div>
+                        <div class="quantity-option">
+                            <label>Quantity:</label>
+                            <div class="quantity-selector">
+                                <button class="quantity-btn decrease" id="quickViewDecrease">-</button>
+                                <input type="number" id="quickViewQuantity" value="1" min="1" max="10">
+                                <button class="quantity-btn increase" id="quickViewIncrease">+</button>
+                            </div>
+                        </div  id="quickViewIncrease">+</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-actions">
+                        <button class="add-to-cart-btn large" id="quickViewAddToCart">Add To Cart</button>
+                        <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Newsletter Modal -->
+    <div class="newsletter-modal" id="newsletterModal">
+        <div class="newsletter-content">
+            <span class="close-modal" id="closeNewsletter"><span class="close-news"><i class="fa-solid fa-xmark"></i></span></span>
+            <div class="newsletter-image">
+                <img src="images/slider-01_1265x.webp" alt="Camera Lens">
+            </div>
+            <div class="newsletter-form">
+                <h2>Newsletter</h2>
+                <p>"MailChimp form action URL" You can find in tab "Newsletter"</p>
+                <form>
+                    <input type="email" placeholder="Your E-mail...">
+                    <button type="submit" class="subscribe-btn">Subscribe</button>
+                </form>
+                <div class="dont-show">
+                    <input type="checkbox" id="dontShow">
+                    <label for="dontShow">Don't Show This Popup Again</label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cookie Consent -->
+    <div class="cookie-consent" id="cookieConsent">
+        <p>By continuing use this site, you agree to the <a href="#">Privacy Policy</a></p>
+        <button class="ok-btn">Ok</button>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>
