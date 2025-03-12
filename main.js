@@ -25,8 +25,8 @@ document.addEventListener('DOMContentLoaded', function() {
             price: 129.99,
             discountPrice: 119.99,
             images: {
-                primary:   "slider-01_1265x.webp",
-                secondary: "slider-02_1265x.webp"
+                primary: "images/slider-01_1265x.webp",
+                secondary: "images/slider-02_1265x.webp"
             },
             inStock: true,
             isNew: false,
@@ -42,8 +42,8 @@ document.addEventListener('DOMContentLoaded', function() {
             price: 599.99,
             discountPrice: null,
             images: {
-                primary: "02_370x240.avif",
-                secondary: "03_370x240.avif"
+                primary: "images/02_370x240.avif",
+                secondary: "images/03_370x240.avif"
             },
             inStock: true,
             isNew: true,
@@ -59,8 +59,8 @@ document.addEventListener('DOMContentLoaded', function() {
             price: 199.99,
             discountPrice: 179.99,
             images: {
-                primary: "04_370x240.avif",
-                secondary: "05_370x240.avif"
+                primary: "images/04_370x240.avif",
+                secondary: "images/05_370x240.avif"
             },
             inStock: false,
             isNew: false,
@@ -76,8 +76,8 @@ document.addEventListener('DOMContentLoaded', function() {
             price: 349.99,
             discountPrice: null,
             images: {
-                primary: "05-02_238x286.avif",
-                secondary: "11-02_238x286.avif"
+                primary: "images/05-02_238x286.avif",
+                secondary: "images/11-02_238x286.avif"
             },
             inStock: true,
             isNew: false,
@@ -93,8 +93,8 @@ document.addEventListener('DOMContentLoaded', function() {
             price: 799.99,
             discountPrice: 749.99,
             images: {
-                primary: "12-02_145x.webp",
-                secondary: "categories-02_200x280.avif"
+                primary: "images/12-02_145x.webp",
+                secondary: "images/categories-02_200x280.avif"
             },
             inStock: true,
             isNew: true,
@@ -110,8 +110,8 @@ document.addEventListener('DOMContentLoaded', function() {
             price: 299.99,
             discountPrice: null,
             images: {
-                primary: "categories-04_200x280.avif",
-                secondary: "categories-05_200x280.avif"
+                primary: "images/categories-04_200x280.avif",
+                secondary: "images/categories-05_200x280.avif"
             },
             inStock: true,
             isNew: true,
@@ -127,8 +127,8 @@ document.addEventListener('DOMContentLoaded', function() {
             price: 399.99,
             discountPrice: 349.99,
             images: {
-                primary: "slider-01_1265x.webp",
-                secondary: "slider-02_1265x.webp"
+                primary: "images/slider-01_1265x.webp",
+                secondary: "images/slider-02_1265x.webp"
             },
             inStock: true,
             isNew: false,
@@ -144,8 +144,8 @@ document.addEventListener('DOMContentLoaded', function() {
             price: 79.99,
             discountPrice: null,
             images: {
-                primary: "02_370x240.avif",
-                secondary: "03_370x240.avif"
+                primary: "images/02_370x240.avif",
+                secondary: "images/03_370x240.avif"
             },
             inStock: true,
             isNew: false,
@@ -161,8 +161,8 @@ document.addEventListener('DOMContentLoaded', function() {
             price: 49.99,
             discountPrice: 39.99,
             images: {
-                primary: "04_370x240.avif",
-                secondary: "05_370x240.avif"
+                primary: "images/04_370x240.avif",
+                secondary: "images/05_370x240.avif"
             },
             inStock: true,
             isNew: true,
@@ -178,8 +178,8 @@ document.addEventListener('DOMContentLoaded', function() {
             price: 29.99,
             discountPrice: null,
             images: {
-                primary: "05-02_238x286.avif",
-                secondary: "11-02_238x286.avif"
+                primary: "images/05-02_238x286.avif",
+                secondary: "images/11-02_238x286.avif"
             },
             inStock: true,
             isNew: false,
@@ -195,8 +195,8 @@ document.addEventListener('DOMContentLoaded', function() {
             price: 89.99,
             discountPrice: 79.99,
             images: {
-                primary: "categories-02_200x280.avif",
-                secondary: "categories-05_200x280.avif"
+                primary: "images/categories-02_200x280.avif",
+                secondary: "images/categories-05_200x280.avif"
             },
             inStock: true,
             isNew: true,
@@ -980,3 +980,206 @@ document.querySelectorAll('.category-card').forEach(card => {
     });
 });
 
+
+
+// Notification System
+class NotificationSystem {
+    constructor() {
+        this.container = document.getElementById('notification-container');
+        this.sound = document.getElementById('notification-sound');
+        this.notificationCount = 0;
+        this.maxNotifications = 5;
+        this.nextNotificationTimeout = null;
+
+        // Attempt to unlock audio on user interaction
+        document.addEventListener('click', () => {
+            this.unlockSound();
+        }, { once: true });
+
+        this.checkStoredNotificationTime();
+    }
+
+    // Show a notification
+    show(options = {}) {
+        const defaults = {
+            title: 'Notification',
+            message: 'This is a notification message',
+            type: 'info', 
+            duration: 3000, 
+            playSound: true
+        };
+
+        const settings = { ...defaults, ...options };
+
+        const notification = document.createElement('div');
+        notification.className = `notification ${settings.type}`;
+        notification.id = `notification-${this.notificationCount++}`;
+
+        notification.innerHTML = `
+            <div class="notification-content">
+                <div class="notification-title">${settings.title}</div>
+                <p class="notification-message">${settings.message}</p>
+                <img src="images/slider-01_1265x.webp"></img>
+            </div>
+            <button class="notification-close" aria-label="Close notification">&times;</button>
+        `;
+
+        this.container.appendChild(notification);
+
+        if (settings.playSound) {
+            this.playSound();
+        }
+
+        this.limitNotifications();
+
+        const closeButton = notification.querySelector('.notification-close');
+        closeButton.addEventListener('click', () => {
+            this.dismiss(notification);
+            this.setNextNotificationTime(300000); // 5 minutes
+        });
+
+        if (settings.duration > 0) {
+            setTimeout(() => {
+                if (notification.parentNode) {
+                    this.dismiss(notification);
+                }
+            }, settings.duration);
+        }
+
+        return notification;
+    }
+
+    // Dismiss notification
+    dismiss(notification) {
+        notification.classList.add('fade-out');
+        notification.addEventListener('animationend', () => {
+            if (notification.parentNode) {
+                notification.parentNode.removeChild(notification);
+            }
+        });
+    }
+
+    // Play notification sound
+    playSound() {
+        if (!this.sound) return;
+
+        this.sound.currentTime = 0;
+        this.sound.play().catch(error => {
+            console.warn('Sound autoplay blocked:', error);
+        });
+    }
+
+    // Unlock sound on user interaction
+    unlockSound() {
+        if (this.sound) {
+            this.sound.play().then(() => {
+                this.sound.pause();
+                this.sound.currentTime = 0;
+                console.log('Notification sound unlocked!');
+            }).catch(error => {
+                console.warn('Failed to unlock sound:', error);
+            });
+        }
+    }
+
+    // Limit number of notifications
+    limitNotifications() {
+        const notifications = this.container.querySelectorAll('.notification');
+        if (notifications.length > this.maxNotifications) {
+            for (let i = 0; i < notifications.length - this.maxNotifications; i++) {
+                this.dismiss(notifications[i]);
+            }
+        }
+    }
+
+    // Store last notification time and schedule next
+    setNextNotificationTime(delay) {
+        const nextTime = Date.now() + delay;
+        localStorage.setItem('nextNotificationTime', nextTime);
+
+        if (this.nextNotificationTimeout) {
+            clearTimeout(this.nextNotificationTimeout);
+        }
+
+        this.nextNotificationTimeout = setTimeout(() => {
+            this.show({
+                title: 'Reminder!',
+                message: 'Don’t miss our special offers!',
+                type: 'info',
+                duration: 5000,
+                playSound: true
+            });
+        }, delay);
+    }
+
+    // Check if it's time for the next notification
+    checkStoredNotificationTime() {
+        const storedTime = localStorage.getItem('nextNotificationTime');
+        if (storedTime) {
+            const remainingTime = storedTime - Date.now();
+            if (remainingTime > 0) {
+                console.log(`Next notification in ${remainingTime / 1000} seconds`);
+                this.nextNotificationTimeout = setTimeout(() => {
+                    this.show({
+                        title: 'Reminder!',
+                        message: 'Don’t miss our special offers!',
+                        type: 'info',
+                        duration: 5000,
+                        playSound: true
+                    });
+                }, remainingTime);
+            }
+        }
+    }
+}
+
+// Initialize Notification System
+const notificationSystem = new NotificationSystem();
+
+// First notification only if no stored time
+if (!localStorage.getItem('nextNotificationTime')) {
+    notificationSystem.show({
+        title: 'HEY THERE!',
+        message: 'Check out our exclusive product.',
+        type: 'success',
+        duration: 50000,
+        playSound: true
+    });
+}
+
+
+
+// pre loader
+
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    const preloader = document.getElementById('preloader');
+    const content = document.getElementById('content');
+    
+    // Automatically hide preloader after 3.5 seconds
+    // (slightly longer than the progress bar animation)
+    setTimeout(function() {
+        preloader.classList.add('hidden');
+        content.classList.add('visible');
+    }, 3500);
+});
+
+
+// sign in dropdown
+
+document.addEventListener("DOMContentLoaded", () => {
+    const signInBtn = document.getElementById("sign-in-btn");
+    const signInDropdown = document.getElementById("sign-in-dropdown");
+
+    signInBtn.addEventListener("click", (event) => {
+        event.preventDefault();
+        signInDropdown.style.display = (signInDropdown.style.display === "block") ? "none" : "block";
+    });
+
+    document.addEventListener("click", (event) => {
+        if (!signInDropdown.contains(event.target) && !signInBtn.contains(event.target)) {
+            signInDropdown.style.display = "none";
+        }
+    });
+});

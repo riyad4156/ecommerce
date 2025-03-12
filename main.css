@@ -111,7 +111,7 @@ ul {
     font-size: 14px;
     justify-content: center;
     text-align: center;
-    background-image: url("slider-01_1265x.webp");
+    background-image: url("images/slider-01_1265x.webp");
 }
 
 .announcement-bar .container {
@@ -458,6 +458,56 @@ border-radius: 40px;
 .sign-in:hover::before, .cart:hover::before {
     left: 100%;
 }
+
+.sign-in-dropdown {
+    position: absolute;
+    top: 130px; /* Default position */
+    right: 100px;
+    width: 200px;
+    background: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    padding: 15px;
+    display: none; /* Initially hidden */
+    z-index: 1000;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Mobile screens (max-width: 600px) */
+@media screen and (max-width: 600px) {
+    .sign-in-dropdown {
+        top: 100px;
+        right: 10px; /* Adjust right padding for small screens */
+        width: 90%; /* Make it take most of the screen width */
+        max-width: 300px; /* Set a max width */
+    }
+}
+
+/* Tablets and small laptops (max-width: 992px) */
+@media screen and (max-width: 992px) {
+    .sign-in-dropdown {
+        right: 20px; /* Adjust spacing */
+        width: 250px;
+    }
+}
+
+
+.sign-in-dropdown form {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.sign-in-dropdown a{
+   border-bottom: 1px solid gray;
+   color: gray;
+}
+
+.sign-in-dropdown a:hover{
+    color: black;
+ }
+ 
+
 
 .cart {
     background-color: #000;
@@ -2718,3 +2768,275 @@ footer {
 
 
   
+   /* Notification Container */
+.notification-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  /* Individual Notification */
+  .notification {
+    background-color: white;
+    color: #333;
+    border-left: 4px solid #4CAF50;
+    border-radius: 4px;
+    padding: 16px;
+    width: 300px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    animation: slide-in 0.3s ease-out forwards;
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  
+  /* Notification Types */
+  .notification.success {
+    border-left-color: var(--color-btn-secondary);
+  }
+  
+  .notification.error {
+    border-left-color: #F44336;
+  }
+  
+  .notification.warning {
+    border-left-color: #FF9800;
+  }
+  
+  .notification.info {
+    border-left-color: #2196F3;
+  }
+  
+  /* Notification Content */
+  .notification-content {
+    flex: 1;
+  }
+  .notification-content img{
+    height: auto;
+    width: 100%;
+  }
+  .notification-title {
+    font-weight: bold;
+    margin-bottom: 5px;
+    font-size: 16px;
+  }
+  
+  .notification-message {
+    font-size: 14px;
+    margin: 0;
+  }
+  
+  /* Close Button */
+  .notification-close {
+    background: none;
+    border: none;
+    color: #999;
+    cursor: pointer;
+    font-size: 18px;
+    padding: 0;
+    margin-left: 10px;
+    transition: color 0.2s;
+  }
+  
+  .notification-close:hover {
+    color: #333;
+  }
+  
+  /* Animations */
+  @keyframes slide-in {
+    from {
+      opacity: 0;
+      transform: translateX(100%);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  @keyframes fade-out {
+    from {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    to {
+      opacity: 0;
+      transform: translateX(100%);
+    }
+  }
+  
+  .notification.fade-out {
+    animation: fade-out 0.3s ease-out forwards;
+  }
+  
+  /* Dark Mode Support */
+  @media (prefers-color-scheme: dark) {
+    .notification {
+      background-color: #333;
+      color: #f1f1f1;
+    }
+    
+    .notification-close {
+      color: #aaa;
+    }
+    
+    .notification-close:hover {
+      color: #fff;
+    }
+  }
+
+
+    /* Preloader container */
+    .preloader {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #0f172a;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+        transition: opacity 0.8s ease-out, visibility 0.8s ease-out;
+    }
+    
+    .preloader.hidden {
+        opacity: 0;
+        visibility: hidden;
+    }
+    
+   
+    
+    /* Loader animation container */
+    .loader {
+        position: relative;
+        width: 200px;
+        height: 200px;
+        perspective: 800px;
+    }
+    
+    /* Hexagon container */
+    .hexagon-container {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        transform-style: preserve-3d;
+        animation: rotate 4s infinite linear;
+    }
+    
+    /* Hexagon shape */
+    .hexagon {
+        position: absolute;
+        width: 100px;
+        height: 110px;
+        top: 45px;
+        left: 50px;
+        transform-style: preserve-3d;
+        clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+        background: linear-gradient(45deg, #3b82f6, #8b5cf6);
+        animation: pulse 2s infinite alternate;
+    }
+    
+    /* Inner hexagon */
+    .hexagon:after {
+        content: '';
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        right: 10px;
+        bottom: 10px;
+        background: #0f172a;
+        clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+        z-index: 1;
+    }
+    
+    /* Hexagon layers */
+    .hexagon:nth-child(1) { transform: translateZ(0px); }
+    .hexagon:nth-child(2) { transform: translateZ(20px); opacity: 0.9; }
+    .hexagon:nth-child(3) { transform: translateZ(40px); opacity: 0.8; }
+    .hexagon:nth-child(4) { transform: translateZ(60px); opacity: 0.7; }
+    .hexagon:nth-child(5) { transform: translateZ(80px); opacity: 0.6; }
+    
+    /* Particles */
+    .particles {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+    }
+    
+    .particle {
+        position: absolute;
+        width: 8px;
+        height: 8px;
+        background: #3b82f6;
+        border-radius: 50%;
+        animation: float 3s infinite ease-in-out;
+    }
+    
+    /* Position particles randomly */
+    .particle:nth-child(1) { top: 20%; left: 20%; animation-delay: 0s; }
+    .particle:nth-child(2) { top: 70%; left: 30%; animation-delay: 0.2s; }
+    .particle:nth-child(3) { top: 40%; left: 80%; animation-delay: 0.4s; }
+    .particle:nth-child(4) { top: 60%; left: 60%; animation-delay: 0.6s; }
+    .particle:nth-child(5) { top: 30%; left: 50%; animation-delay: 0.8s; }
+    .particle:nth-child(6) { top: 80%; left: 40%; animation-delay: 1s; }
+    .particle:nth-child(7) { top: 50%; left: 10%; animation-delay: 1.2s; }
+    .particle:nth-child(8) { top: 10%; left: 70%; animation-delay: 1.4s; }
+    
+    /* Progress bar */
+    .progress-container {
+        position: absolute;
+        bottom: -60px;
+        width: 200px;
+        height: 4px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 4px;
+        overflow: hidden;
+    }
+    
+    .progress-bar {
+        height: 100%;
+        width: 0%;
+        background: linear-gradient(to right, #3b82f6, #8b5cf6);
+        border-radius: 4px;
+        animation: progress 3s ease-in-out forwards;
+    }
+    
+    /* Loading text */
+    .loading-text {
+        position: absolute;
+        bottom: 30px;
+        font-size: 14px;
+        letter-spacing: 2px;
+        color: rgba(255, 255, 255, 0.7);
+    }
+    
+   
+    /* Animations */
+    @keyframes rotate {
+        0% { transform: rotateY(0deg) rotateX(0deg); }
+        100% { transform: rotateY(360deg) rotateX(360deg); }
+    }
+    
+    @keyframes pulse {
+        0% { box-shadow: 0 0 10px rgba(59, 130, 246, 0.5); }
+        100% { box-shadow: 0 0 30px rgba(139, 92, 246, 0.8); }
+    }
+    
+    @keyframes float {
+        0% { transform: translateY(0) scale(1); }
+        50% { transform: translateY(-15px) scale(1.5); }
+        100% { transform: translateY(0) scale(1); }
+    }
+    
+    @keyframes progress {
+        0% { width: 0%; }
+        100% { width: 100%; }
+    }

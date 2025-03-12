@@ -77,15 +77,21 @@
                 </div>
             </div>
             <div class="header-actions">
-                 <a href="#" class="sign-in"><i class="fas fa-user"></i> Sign in</a>
+                 <a href="#" class="sign-in" id="sign-in-btn"><i class="fas fa-user"></i> Sign in</a>
                  <a href="#" class="cart" id="cartBtn">
                     <i class="fas fa-shopping-cart"></i> Cart <span class="cart-count" id="cartCount">0</span>
                  </a>
                     <!-- for  responsive -->
-                    <a href="#" class="sign-in-res"><i class="fas fa-user"></i></a>
+                    <a href="#" class="sign-in-res" id="sign-in-btn"><i class="fas fa-user"></i></a>
                     <a href="#" class=" cart-res" id="cartBtn">
                        <i class="fas fa-shopping-cart" ></i>
                     </a>
+                    <div class="sign-in-dropdown" id="sign-in-dropdown">
+                        <form>
+                             <a href="sign-in-sign-up.html">Log in</a>
+                             <a href="sign-in-sign-up.html">Create a account</a>
+                        </form>
+                    </div>
             </div>
         </div>
     </header>
@@ -146,10 +152,10 @@
             <!-- Content Area -->
             <div class="content">
                 <!-- Hero Slider -->
-                <div class="hero-slider" id="heroSlider">
+                <div class="hero-slider" id="heroSlider" data-aos="fade-up">
                     <div class="slider-container">
                         <div class="slide active">
-                            <img src="slider-01_1265x.webp" alt="Camera Collection">
+                            <img src="images/slider-01_1265x.webp" alt="Camera Collection">
                             <div class="slide-content" data-aos="fade-right">
                                 <h2>New HD Cameras</h2>
                                 <p>Buy New Cameras at 35% off</p>
@@ -157,7 +163,7 @@
                             </div>
                         </div>
                         <div class="slide">
-                            <img src="slider-02_1265x.webp" alt="Lens Collection">
+                            <img src="images/slider-02_1265x.webp" alt="Lens Collection">
                             <div class="slide-content right" data-aos="fade-left">
                                 <h2>Premium Lens Collection</h2>
                                 <p>Explore our high-quality lenses for every need</p>
@@ -227,7 +233,7 @@
                             <button class="next-arrow" data-slider="top-categories"><i class="fas fa-chevron-right"></i></button>
                         </div>
                     </div>
-                    <div class="product-slider" id="topCategoriesSlider">
+                    <div class="product-slider" id="topCategoriesSlider" data-aos="fade-up">
                         <!-- Products will be added dynamically -->
                     </div>
                 </div>
@@ -235,7 +241,7 @@
                 <!-- Promotional Banners -->
                 <div class="promo-banners">
                     <div class="promo-banner">
-                        <img src="categories-02_200x280.avif" alt="Snap Touch">
+                        <img src="images/categories-02_200x280.avif" alt="Snap Touch">
                         <div class="promo-content">
                             <h3>Snap Touch</h3>
                             <p>Smart Camera</p>
@@ -243,7 +249,7 @@
                         </div>
                     </div>
                     <div class="promo-banner">
-                        <img src="categories-05_200x280.avif" alt="Security Cameras">
+                        <img src="images/categories-05_200x280.avif" alt="Security Cameras">
                         <div class="promo-content">
                             <h3>Security Cameras</h3>
                             <p>Secure your home from theft</p>
@@ -261,7 +267,7 @@
                             <button class="next-arrow" data-slider="special-collection"><i class="fas fa-chevron-right"></i></button>
                         </div>
                     </div>
-                    <div class="product-slider" id="specialCollectionSlider">
+                    <div class="product-slider" id="specialCollectionSlider" data-aos="fade-up">
                         <!-- Products will be added dynamically -->
                     </div>
                 </div>
@@ -275,7 +281,7 @@
                             <button class="next-arrow" data-slider="new-collection"><i class="fas fa-chevron-right"></i></button>
                         </div>
                     </div>
-                    <div class="product-slider" id="newCollectionSlider">
+                    <div class="product-slider" id="newCollectionSlider" data-aos="fade-up">
                         <!-- Products will be added dynamically -->
                     </div>
                 </div>
@@ -289,7 +295,7 @@
                             <button class="next-arrow" data-slider="featured-products"><i class="fas fa-chevron-right"></i></button>
                         </div>
                     </div>
-                    <div class="product-slider" id="featuredProductsSlider">
+                    <div class="product-slider" id="featuredProductsSlider" data-aos="fade-up">
                         <!-- Products will be added dynamically -->
                     </div>
                 </div>
@@ -321,19 +327,19 @@
                             <h3>Electronics</h3>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
                             <span class="item-count">15 Items</span>
-                            <img src="05_370x240.avif" alt="Electronics">
+                            <img src="images/05_370x240.avif" alt="Electronics">
                         </div>
                         <div class="category-card">
                             <h3>Cameras</h3>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
                             <span class="item-count">10 Items</span>
-                            <img src="03_370x240.avif" alt="Cameras">
+                            <img src="images/03_370x240.avif" alt="Cameras">
                         </div>
                         <div class="category-card">
                             <h3>Game</h3>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
                             <span class="item-count">12 Items</span>
-                            <img src="categories-02_200x280.avif" alt="Game">
+                            <img src="images/categories-02_200x280.avif" alt="Game">
                         </div>
                     </div>
                 </div>
@@ -347,7 +353,7 @@
                             <button class="next-arrow" data-slider="bestseller-collection"><i class="fas fa-chevron-right"></i></button>
                         </div>
                     </div>
-                    <div class="product-slider" id="bestsellerCollectionSlider">
+                    <div class="product-slider" id="bestsellerCollectionSlider" data-aos="fade-up">
                         <!-- Products will be added dynamically -->
                     </div>
                 </div>
@@ -644,7 +650,7 @@
         <div class="newsletter-content">
             <span class="close-modal" id="closeNewsletter"><span class="close-news"><i class="fa-solid fa-xmark"></i></span></span>
             <div class="newsletter-image">
-                <img src="slider-01_1265x.webp" alt="Camera Lens">
+                <img src="images/slider-01_1265x.webp" alt="Camera Lens">
             </div>
             <div class="newsletter-form">
                 <h2>Newsletter</h2>
@@ -666,7 +672,54 @@
         <p>By continuing use this site, you agree to the <a href="#">Privacy Policy</a></p>
         <button class="ok-btn">Ok</button>
     </div>
+           <!-- Notification Container -->
+  <div class="notification-container" id="notification-container">
+    <!-- Notifications will be added here dynamically -->
+</div>
 
+ <!-- Audio element for notification sound -->
+<audio id="notification-sound" preload="auto">
+    <source src="https://assets.mixkit.co/active_storage/sfx/2358/2358-preview.mp3" type="audio/mp3">
+    <!-- Fallback for older browsers -->
+    Your browser does not support the audio element.
+</audio>
+
+         <!-- Preloader -->
+    <div class="preloader" id="preloader">
+        <div class="loader">
+            <!-- Logo or brand name -->
+            <div class="logo"><img src="https://theme-shoppee.myshopify.com/cdn/shop/files/logo-01.png?v=1614287210" alt=""></div>
+            
+            <!-- Hexagon animation -->
+            <div class="hexagon-container">
+                <div class="hexagon"></div>
+                <div class="hexagon"></div>
+                <div class="hexagon"></div>
+                <div class="hexagon"></div>
+                <div class="hexagon"></div>
+            </div>
+            
+            <!-- Floating particles -->
+            <div class="particles">
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+            </div>
+            
+            <!-- Progress bar -->
+            <div class="progress-container">
+                <div class="progress-bar" id="progress-bar"></div>
+            </div>
+            
+            <!-- Loading text -->
+            
+        </div>
+    </div>
     <script src="main.js"></script>
 </body>
 </html>
